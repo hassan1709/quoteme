@@ -1,0 +1,128 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import './views/authentication/login_screen.dart';
+import './views/authentication/create_account.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
+
+void main() {
+  runApp(
+    QuoteMeApp(),
+  );
+}
+
+class QuoteMeApp extends StatelessWidget {
+  final _primarySwatchColor = Colors.deepOrange;
+  final _primaryColor = Colors.deepOrange.shade800;
+  final _accentColor = Colors.deepOrangeAccent.shade400;
+  final _errorColor = Colors.redAccent.shade700;
+  final _hintColor = Colors.deepOrange.shade400;
+  final _buttonColor = Colors.deepOrange;
+  final _highlightColor = Colors.deepOrange.shade300;
+  final _elevatedButtonTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 18.0,
+    fontWeight: FontWeight.bold,
+  );
+
+  final _textButtonTextStyle = TextStyle(
+    fontSize: 15.0,
+    fontWeight: FontWeight.bold,
+  );
+
+  final _textFieldTextStyle = TextStyle(
+    color: Colors.black,
+  );
+  final _labelTextStyle = TextStyle(
+    fontSize: 15.0,
+    color: Colors.deepOrange.shade800,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    ///TODO: labels theme
+    ///TODO: text theme
+    ///TODO: icons theme
+    ///TODO: elevated buttons theme
+    ///TODO: text button theme
+    ///TODO: screens background theme
+    return MaterialApp(
+      navigatorKey: navigatorKey,
+      title: 'QuoteM3',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: _primarySwatchColor,
+        primaryColor: _primaryColor,
+        errorColor: _errorColor,
+        accentColor: _accentColor,
+        highlightColor: _highlightColor,
+        hintColor: _hintColor,
+        buttonColor: _buttonColor,
+
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+          size: 30.0,
+        ),
+        textTheme: TextTheme(
+          //text style for buttons
+          bodyText2: _elevatedButtonTextStyle,
+          //text style for textFields
+          subtitle1: _textFieldTextStyle,
+        ),
+        // Styling textFields and textFormFields (except the content text)
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Color.fromRGBO(255, 171, 145, 0.25),
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: 10.0,
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: BorderSide(
+              style: BorderStyle.none,
+            ),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: BorderSide(
+              style: BorderStyle.none,
+            ),
+          ),
+          labelStyle: TextStyle(
+            fontSize: 15.0,
+            color: _primaryColor,
+          ),
+          hintStyle: TextStyle(
+              //color: _accentColor,
+              ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 10.0,
+            textStyle: _elevatedButtonTextStyle,
+            padding: EdgeInsets.all(10.0),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: _primaryColor,
+            padding: EdgeInsets.all(15.0),
+            textStyle: _textButtonTextStyle,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+          ),
+        ),
+      ),
+      home: LoginScreen(),
+      routes: {
+        CreateAccount.routeName: (ctx) => CreateAccount(),
+      },
+    );
+  }
+}
