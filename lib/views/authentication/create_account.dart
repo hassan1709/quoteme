@@ -15,6 +15,12 @@ class _CreateAccountState extends State<CreateAccount> {
   final _formKey = GlobalKey<FormState>();
   var _userEmail;
   var _userPassword;
+  var _userName;
+
+  String? validateName(String? name) {
+    if (name == '') return 'Please enter your full name';
+    return null;
+  }
 
   String? validateEmail(String? email) {
     if (!EmailValidator.validate(email!))
@@ -86,6 +92,24 @@ class _CreateAccountState extends State<CreateAccount> {
                         //mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextFormField(
+                            key: ValueKey('name'),
+                            autocorrect: false,
+                            textCapitalization: TextCapitalization.words,
+                            enableSuggestions: true,
+                            keyboardType: TextInputType.name,
+                            validator: validateName,
+                            onSaved: (value) {
+                              _userName = value;
+                            },
+                            decoration: InputDecoration(
+                              //labelText: 'Email',
+                              hintText: 'Full name:',
+                            ),
+                          ),
+                          SizedBox(
+                            height: _sizeConfig.safeBlockVertical * 2.0,
+                          ),
+                          TextFormField(
                             key: ValueKey('email'),
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
@@ -97,7 +121,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             },
                             decoration: InputDecoration(
                               //labelText: 'Email',
-                              hintText: 'Please type your email here',
+                              hintText: 'Email:',
                             ),
                           ),
                           SizedBox(
@@ -112,7 +136,22 @@ class _CreateAccountState extends State<CreateAccount> {
                             },
                             decoration: InputDecoration(
                               //labelText: 'Password',
-                              hintText: '...and your password here!',
+                              hintText: 'Password:',
+                            ),
+                          ),
+                          SizedBox(
+                            height: _sizeConfig.safeBlockVertical * 4.0,
+                          ),
+                          TextFormField(
+                            key: ValueKey('password2'),
+                            obscureText: true,
+                            validator: validatePassword,
+                            onSaved: (value) {
+                              _userPassword = value;
+                            },
+                            decoration: InputDecoration(
+                              //labelText: 'Password',
+                              hintText: 'Password again:',
                             ),
                           ),
                           SizedBox(

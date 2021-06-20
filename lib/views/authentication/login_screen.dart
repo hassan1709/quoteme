@@ -35,12 +35,18 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               BackgroundOneWidget(
                 featureColors: [
-                  Color.fromRGBO(17, 141, 163, 1.0),
-                  Color.fromRGBO(84, 184, 194, 1.0),
+                  // Color.fromRGBO(17, 141, 163, 1.0),
+                  // Color.fromRGBO(84, 184, 194, 1.0),
+                  Colors.lightBlue.shade700,
+                  Colors.lightBlue.shade800,
+                  Colors.lightBlue.shade900
                 ],
                 containerColors: [
-                  Color.fromRGBO(232, 237, 249, 1.0),
-                  Color.fromRGBO(232, 237, 249, 1.0),
+                  // Color.fromRGBO(232, 237, 249, 1.0),
+                  // Color.fromRGBO(232, 237, 249, 1.0),
+                  Colors.lightBlue.shade900,
+                  Colors.lightBlue.shade800,
+                  Colors.lightBlue.shade700,
                 ],
                 inverted: false,
               ),
@@ -64,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             decoration: InputDecoration(
                               //labelText: 'Email',
-                              hintText: 'Please type your email here',
+                              hintText: 'Email:',
                             ),
                           ),
                           SizedBox(
@@ -78,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             decoration: InputDecoration(
                               //labelText: 'Password',
-                              hintText: '...and your password here!',
+                              hintText: 'Password:',
                             ),
                           ),
                           SizedBox(

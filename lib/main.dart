@@ -16,7 +16,7 @@ class QuoteMeApp extends StatelessWidget {
   final _primaryColor = Colors.deepOrange.shade800;
   final _accentColor = Colors.deepOrangeAccent.shade400;
   final _errorColor = Colors.redAccent.shade700;
-  final _hintColor = Colors.deepOrange.shade400;
+  final _hintColor = Colors.white;
   final _buttonColor = Colors.deepOrange;
   final _highlightColor = Colors.deepOrange.shade300;
   final _elevatedButtonTextStyle = TextStyle(
@@ -26,12 +26,14 @@ class QuoteMeApp extends StatelessWidget {
   );
 
   final _textButtonTextStyle = TextStyle(
+    color: Colors.white,
     fontSize: 15.0,
     fontWeight: FontWeight.bold,
   );
 
   final _textFieldTextStyle = TextStyle(
-    color: Colors.black,
+    color: Colors.white,
+    fontSize: 16.0,
   );
   final _labelTextStyle = TextStyle(
     fontSize: 15.0,
@@ -40,12 +42,6 @@ class QuoteMeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ///TODO: labels theme
-    ///TODO: text theme
-    ///TODO: icons theme
-    ///TODO: elevated buttons theme
-    ///TODO: text button theme
-    ///TODO: screens background theme
     return MaterialApp(
       navigatorKey: navigatorKey,
       title: 'QuoteM3',
@@ -72,7 +68,7 @@ class QuoteMeApp extends StatelessWidget {
         // Styling textFields and textFormFields (except the content text)
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Color.fromRGBO(255, 171, 145, 0.25),
+          //fillColor: Color.fromRGBO(255, 171, 145, 0.25),
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(
             vertical: 20.0,
@@ -110,9 +106,11 @@ class QuoteMeApp extends StatelessWidget {
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            primary: _primaryColor,
+            primary: Colors.white,
             padding: EdgeInsets.all(15.0),
             textStyle: _textButtonTextStyle,
+            //elevation: 1.0,
+            backgroundColor: Color.fromRGBO(255, 87, 34, 0.3),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
