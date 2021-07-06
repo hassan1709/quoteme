@@ -25,9 +25,6 @@ dependencies:
     sdk: flutter
   email_validator: ^2.0.1
   provider: ^5.0.0
-  amplify_flutter: ^0.2.0
-  amplify_auth_cognito: ^0.2.0
-  amplify_analytics_pinpoint: ^0.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
