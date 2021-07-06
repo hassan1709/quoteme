@@ -108,15 +108,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    TextButton(
+                    TextButton.icon(
                       onPressed: () {},
-                      child: Text('Forgot Password?'),
+                      icon: Icon(Icons.password_rounded),
+                      label: Text('Forgot Password?'),
                     ),
-                    TextButton(
+                    TextButton.icon(
                       onPressed: () {
                         Navigator.pushNamed(context, CreateAccount.routeName);
                       },
-                      child: Text('Create Account'),
+                      icon: Icon(Icons.account_circle_rounded),
+                      label: Text('Create Account'),
+                      //child: Text('Create Account'),
                     )
                   ],
                 ),
